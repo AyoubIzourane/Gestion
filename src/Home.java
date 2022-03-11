@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.cj.util.StringUtils;
+
 import Module.Login;
 import Module.MyDB;
 
@@ -37,24 +39,48 @@ public class Home extends HttpServlet {
         @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        	 String username = request.getParameter("username");
-      		String password = request.getParameter("password");
-              boolean role = Boolean.valueOf(request.getParameter("role"));
-              
-              
-              if(role==true) {
-              	this.getServletContext().getRequestDispatcher("/WEB-INF/HomeAdmin.jsp").forward(request, response);
-              }else {
-              	this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
-              }
-              
-      		
-      		Login login = new Login();
-      		login.setUsername(username);
-      		login.setPassword(password);
-      		login.setRole(role);
-      		
-      		int num = MyDB.insert_login(login);
+        	PrintWriter out = response.getWriter();
+
+            String username = request.getParameter("username");
+    		String password = request.getParameter("password");
+    		
+    		request.setAttribute("username", username);
+    		request.setAttribute("password", password);
+    		
+    		
+            boolean role = Boolean.valueOf(request.getParameter("role"));
+
+            if(StringUtils.isNullOrEmpty(username) || StringUtils.isNullOrEmpty(password)) {
+    	    	//this.getServletContext().getRequestDispatcher("/index.html").include(request, response);;
+            	
+
+
+            }else {
+            	if(MyDB.checkAccount(username,password)) {
+    				if(role==true) {
+    			    	this.getServletContext().getRequestDispatcher("/WEB-INF/HomeAdmin.jsp").forward(request, response);
+    			    }else {
+    			    	this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
+    			    }
+    			}
+    			else {
+    				out.println("<script type=\"text/javascript\">");
+    	        	out.println("alert('Username or password incorrect');");
+    	        	out.println("location='index.html';");
+    	        	out.println("</script>");
+    			}
+            }
+            
+            
+            
+            
+    		//insert data should be in add user
+    		/*Login login = new Login();
+    		login.setUsername(username);
+    		login.setPassword(password);
+    		login.setRole(role);
+    		
+    		boolean num = MyDB.insertAccount(login);*/
        
 		
 		

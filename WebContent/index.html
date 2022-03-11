@@ -1,6 +1,4 @@
-
-
-      <!DOCTYPE html>
+<!DOCTYPE html>
       <html lang="en">
       <head>
         <!-- Design by foolishdeveloper.com -->
@@ -142,6 +140,20 @@
 }
       
           </style>
+          
+          <script language="Javascript">
+	
+			 function validateForm() {
+				  var x = document.forms["myForm"]["username"].value;
+					var y=document.forms["myForm"]["password"].value;
+		
+				  if (x == "" || y == "") {
+				    alert("Username or Password is empty");
+				    return false;
+				  }
+				}
+		  </script>
+          
       </head>
       <body>
 
@@ -153,7 +165,7 @@
               <div class="shape"></div>
               <div class="shape"></div>
           </div>
-          <form action="Home" method="POST">
+          <form name="myForm" action="Home" method="POST" required>
               <h3>Login Here</h3>
       
               <label for="username">Username</label>
@@ -166,10 +178,8 @@
               <input type="checkbox" name="role" id="admin" value="true">
               
 
-              <button>Log In</button>
+              <button onclick="return validateForm()">Log In</button>
              
           </form>
       </body>
-      </html>
-      
-
+</html>
