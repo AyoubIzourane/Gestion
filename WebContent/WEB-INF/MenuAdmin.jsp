@@ -28,7 +28,7 @@
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
                       <a href="Home.jsp" class="logo">
-                          Espace Numerique
+                          Admin Dashboard
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->

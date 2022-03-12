@@ -1,50 +1,120 @@
 package Module;
 
-public class Login {
-	
-	private static int id_login=0;
-	private String username;
-	private String password;
-	private boolean role;
-	
-	public Login() {
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name="Login", urlPatterns="/Login")
+public class Login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+        @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        	this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
 		
 	}
-	
-	
-	public Login(String username, String password, boolean role) {
-		this.id_login++;
-		this.username = username;
-		this.password = password;
-		this.role = role;
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+        @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        	// TODO Auto-generated method stub
+        	String username = request.getParameter("username");
+        	String password = request.getParameter("password");
+             boolean role = Boolean.valueOf(request.getParameter("role"));
+             
+             //for connection to db DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_notes","root","");
+             MyDB mydb = new MyDB();
+            
+            
+         
+        		//role == true ==> Admin
+             if(role==true) {
+            	 try {
+          			//calling function for connection
+          			mydb.getConnection();
+          			
+          			//inserting login statement to check if admin exist or not 
+          			Statement st = mydb.st ;
+          			ResultSet rs = st.executeQuery("select * from user where username ='"+username+"' and password = '"+password+"' and role=1 ");
+          			//if user exist then will show Admin Dashboard
+          			if (rs.next()) {
+          				
+          				 this.getServletContext().getRequestDispatcher("/WEB-INF/HomeAdmin.jsp").forward(request, response);
+          			}
+          			else {
+          				PrintWriter out = response.getWriter();
+          				out.print("nothing");
+          			}
+          		} catch ( SQLException e) {
+          			// TODO Auto-generated catch block
+          			e.printStackTrace();
+          		}
+          	
+            	
+            	
+            	
+            	//role == false ==> Student
+             }else {
+            	 
+            	 try {
+            		//calling function for connection
+           			mydb.getConnection();
+           			
+           			//inserting login statement to check if student exist or not 
+           			Statement st = mydb.st ;
+           			ResultSet rs = st.executeQuery("select * from user where username ='"+username+"' and password = '"+password+"' and role=0");
+           			
+           			//if student exist show Home page for students
+           			if (rs.next()) {
+           				
+           				this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
+           			}
+           			else {
+           				
+           				PrintWriter out = response.getWriter();
+           				out.print("nothing");
+           			}
+           		} catch ( SQLException e) {
+           			// TODO Auto-generated catch block
+           			e.printStackTrace();
+           		}
+           	
+             	
+             
+             }
+             
+             
+             
+        		/*Insertion des Donnee au tableau user
+        		User user = new User();
+        		user.setUsername(username);
+        		user.setPassword(password);
+        		user.setRole(role);
+        		
+        		int num = MyDB.insertAccount(user);
+
+        		 */
+
+        	
+		
 	}
-	
-	
-	public static int getId_login() {
-		return id_login;
-	}
-	public static void setId_login(int id_login) {
-		Login.id_login = id_login;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public boolean isRole() {
-		return role;
-	}
-	public void setRole(boolean role) {
-		this.role = role;
-	}
-	
-	
 
 }
+
