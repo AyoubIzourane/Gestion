@@ -39,8 +39,12 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
-              <h6>Hello Student</h6>
-              <h2>Welcome to your ....</h2>
+
+                 <h2>Welcome
+               <%
+               String fullname = (String)request.getAttribute("fullname");
+               out.print(fullname); 
+              %></h2>
              
             
           </div>

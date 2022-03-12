@@ -2,21 +2,21 @@ package Module;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MyDB {
 	static Connection cn;
-	static Statement statement;
-	static ResultSet resultSet;
+	static Statement st;
 	
 	public static Connection getConnection() {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection("jdbc:mysql://localhost:3308/gestion_notes", "root", "");
-			statement=cn.createStatement();
+			cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_notes","root","ayoub");
+			st=cn.createStatement();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -25,35 +25,30 @@ public class MyDB {
 	}
 	
 	
-	public static boolean insertAccount(Login login) {
+	public static int insertAccount(User user) {
 		try {
-			String sql = "insert into login values("+login.getId_login()+",'"+login.getUsername()+"','"+login.getPassword()+"',"+login.isRole()+")";
+			String sql = "insert into user(id_user,username,password,role) values("+user.getId_user()+",'"+user.getUsername()+"','"+user.getPassword()+"',"+user.isRole()+")";
 			Connection cn = MyDB.getConnection();
-			statement.executeUpdate(sql);
-			return true;
+			st.executeUpdate(sql);
+			return 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return 0;
 		}
 	}
 	
-	
-	public static boolean checkAccount(String username,String password) {
-		boolean res = false;
+	public static String showFullname(User user) {
 		try {
-			String sql = "select username,password from login where username='"+ username +"' and password='"+password+"'";
+			String sql = "select full_name from user where username = '"+user.getUsername()  +"' ";
 			Connection cn = MyDB.getConnection();
-
-			resultSet = statement.executeQuery(sql);
-			while(resultSet.next()){
-				return true;
-			}
+			ResultSet rs = st.executeQuery(sql);
+			return String.valueOf(rs);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return res;
 	}
+	
 	
 
 }

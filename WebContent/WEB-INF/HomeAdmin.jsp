@@ -40,7 +40,12 @@
               <div class="col-lg-12">
                 <div class="caption">
 
-              <h2>Welcome Admin</h2>
+              <h2>Welcome
+               <%
+              
+               String fullname = (String)request.getAttribute("fullname");
+               out.print(fullname); 
+              %></h2>
              
             
           </div>
