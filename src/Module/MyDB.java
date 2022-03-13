@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MyDB {
-	static Connection cn;
-	static Statement st;
-	static ResultSet rs;
+	public static Connection cn;
+	public static Statement st;
+	public static ResultSet rs;
 	
 	public static Connection getConnection() {
 		

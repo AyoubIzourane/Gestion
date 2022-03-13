@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Module.User;
-import Module.Login;
 import Module.MyDB;
 @WebServlet(name="Home", urlPatterns="/Home")
 public class Home extends HttpServlet {
