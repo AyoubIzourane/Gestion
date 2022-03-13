@@ -1,79 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../font/font-awesome.min.css">
+<title>Admins</title>
 
-  <head>
+  <style>
+    #myInput,#myInput2,#myInput3 {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 27%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+input{
+  background-color: rgb(245, 245, 245);
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="TemplateMo">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+}
+input:hover {
+  background-color: white;
+}
 
-    <title>Home</title>
+button{
+  size: 40%;
+}
+table{
+  border-radius: 3px;
+}
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  font-size: 18px; /* Increase font-size */
+  background-color: rgb(245, 245, 245);
+  border: 2px solid #eb9f28 !important;
+}
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="css/fontawesome.css">
-    <link rel="stylesheet" href="css/templatemo-edu-meeting.css">
-    <link rel="stylesheet" href="css/owl.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
 
-  </head>
+#myTable tr.header {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #eb9f28;
+  color: white;
+}
+#myTable tr:hover:not(.header) {
+  /* Add a grey background color to the table header and on hover */
+  background-color: white;
+}
+
+h1{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+  padding: 20px;
+}
+
+a{
+  color: #eb9f28;
+}
+a:hover{
+  background-color: white;
+  color: black;
+}
+.btn-primary{
+  background-color: #eb9f28;
+  border-color: #eb9f28;
+  color: white;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #eb9f28;
+    background-color: white;
+    border-color: #eb9f28; /*set the color you want here*/
+}
+  </style>
+  
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    function myFunction2() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput2");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    function myFunction3() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput3");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[2];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+
+</head>
 
 <body>
+  <div class="container">
+    
+    <h1 class="admin-label">Admins</h1>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for username..">
+    <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for email.."> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="#" class="btn btn-primary p-5 pt-3 pb-3 mb-3" style="font-size: medium;font-weight: bold; "> Add Admin</a>
 
 
-    <%@include file="MenuAdmin.jsp" %>
+  <table id="myTable" class="table">
+    <tr class="header">
+      <th style="width:20%;">Full Name</th>
+      <th style="width:20%;">Username</th>
+      <th style="width:20%;">Email</th>
+      <th style="width:10%;">Action</th>
+    </tr>
+    <tr>
+      <td>Youssef El Goumri</td>
+      <td>y7goumri</td>
+      <td>yel@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a> &nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Test</td>
+      <td>test</td>
+      <td>test@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span> 
+        </a> &nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Ayoub Izourane</td>
+      <td>ayoub</td>
+      <td>ayoub@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a> &nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>Admin Name</td>
+      <td>admin2</td>
+      <td>admin2@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span> 
+        </a>&nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+  </table>
+  </div>
   
-  <!-- ***** Main Banner Area Start ***** -->
-  <section class="section main-banner" id="top" data-section="section1">
-      <video autoplay muted loop id="bg-video">
-          <source src="images/course-video.mp4" type="video/mp4" />
-      </video>
-
-      <div class="video-overlay header-text">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="caption">
-                
-                
-                
-                <div>
-                  <table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-</table> </div>
-               
-                
-                
-                
-                
-                
-
-          </div>
-              </div>
-            </div>
-          </div>
-      </div>
-  </section>
-
 </body>
 </html>
