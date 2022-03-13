@@ -42,7 +42,7 @@
 
                  <h2>Welcome
                <%
-               String fullname = (String)request.getAttribute("fullname");
+               String fullname = (String) request.getAttribute("fullname");
                out.print(fullname); 
               %></h2>
              
