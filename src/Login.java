@@ -1,4 +1,4 @@
-package Module;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Module.MyDB;
+import Module.User;
 
 @WebServlet(name="Login", urlPatterns="/Login")
 public class Login extends HttpServlet {
@@ -35,20 +38,32 @@ public class Login extends HttpServlet {
         @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         	// TODO Auto-generated method stub
+        	PrintWriter out = response.getWriter();
         	String username = request.getParameter("username");
         	String password = request.getParameter("password");
              boolean role = Boolean.valueOf(request.getParameter("role"));
              
+             
+             
+             
              //for connection to db DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_notes","root","");
              MyDB mydb = new MyDB();
-            
-            
+             mydb.getConnection();
+             
+             try {
+				User user = mydb.getUser(username);
+				request.setAttribute("fullname", user.getFull_name());
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+             
+             
          
         		//role == true ==> Admin
              if(role==true) {
             	 try {
           			//calling function for connection
-          			mydb.getConnection();
           			
           			//inserting login statement to check if admin exist or not 
           			Statement st = mydb.st ;
@@ -59,7 +74,6 @@ public class Login extends HttpServlet {
           				 this.getServletContext().getRequestDispatcher("/WEB-INF/HomeAdmin.jsp").forward(request, response);
           			}
           			else {
-          				PrintWriter out = response.getWriter();
           				out.print("nothing");
           			}
           		} catch ( SQLException e) {
@@ -75,7 +89,6 @@ public class Login extends HttpServlet {
             	 
             	 try {
             		//calling function for connection
-           			mydb.getConnection();
            			
            			//inserting login statement to check if student exist or not 
            			Statement st = mydb.st ;
@@ -87,9 +100,8 @@ public class Login extends HttpServlet {
            				this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
            			}
            			else {
-           				
-           				PrintWriter out = response.getWriter();
-           				out.print("nothing");
+           				this.getServletContext().getRequestDispatcher("/index.html").include(request, response);
+
            			}
            		} catch ( SQLException e) {
            			// TODO Auto-generated catch block
