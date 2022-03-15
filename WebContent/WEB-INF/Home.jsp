@@ -42,9 +42,17 @@
 
                  <h2>Welcome
                <%
-               String fullname = (String) request.getAttribute("fullname");
-               out.print(fullname); 
-              %></h2>
+               Cookie[] cookies = request.getCookies();
+               for (Cookie cookie : cookies) {
+                   if (cookie.getName().equals("cfullname")) {
+                       String cfullname = cookie.getValue();
+                       out.print(cfullname); 
+                   }
+               }
+               /*String fullname = (String) request.getAttribute("fullname");
+               out.print(cusername); */
+              %>
+              </h2>
              
             
           </div>
