@@ -17,7 +17,7 @@ public class MyDB {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection("jdbc:mysql://localhost:3308/gestion_notes","root","");
+			cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_notes","root","ayoub");
 			st=cn.createStatement();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

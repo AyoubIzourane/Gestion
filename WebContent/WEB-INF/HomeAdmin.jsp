@@ -26,7 +26,7 @@
 <body>
 
 
-    <%@include file="MenuAdmin.jsp" %>
+<div><%@include file="MenuAdmin.jsp" %></div>
   
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
