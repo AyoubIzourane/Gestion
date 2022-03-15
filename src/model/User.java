@@ -1,6 +1,10 @@
-package Module;
+package model;
+
+
+
 
 public class User {
+	
 	private static int id_user;
 	private String full_name;
 	private String username;
@@ -10,18 +14,14 @@ public class User {
 	private boolean role;
 	
 	public User() {
-		
 	}
 	
-	public User(String username, String password, boolean role) {
+	/*public User(String username, String password, boolean role) {
 		this.id_user++;
-		
 		this.username = username;
 		this.password = password;
-
 		this.role = role;
-		
-	}
+	}*/
 	
 
 	public int getId_user() {

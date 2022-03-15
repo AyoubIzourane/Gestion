@@ -1,3 +1,4 @@
+package controller;
 
 
 import java.io.IOException;
@@ -10,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Modules
  */
-@WebServlet(name="Admins", urlPatterns="/Admins")
-public class Admins extends HttpServlet{
+@WebServlet(name="Modules", urlPatterns="/Modules")
+public class Modules extends HttpServlet{
       @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/Admins.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/Modules.jsp").forward(request, response);
 	}
 
 	/**
