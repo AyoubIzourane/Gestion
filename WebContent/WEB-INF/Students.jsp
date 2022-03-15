@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../font/font-awesome.min.css">
-<title>Admins</title>
+<title>Students</title>
 
 
     <!-- Menu -->
@@ -29,7 +29,7 @@
     
 
         <script src="js/addform.js"></script>
-		<link rel="stylesheet" href="css/addform.css">
+<link rel="stylesheet" href="css/addform.css">
     
 
   <style>
@@ -50,7 +50,6 @@
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
-
 }
 
 .pagelabel{
@@ -207,13 +206,13 @@ a:hover{
 
   <div class="container">
     
-    <h1 class="pagelabel">Admins</h1>
+    <h1 class="pagelabel">Students</h1>
 
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
     <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for username..">
     <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search for email.."> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <a class="btn btn-primary p-5 pt-3 pb-3 mb-3" style="font-size: medium;font-weight: bold;margin-top:12px; " class="open-button" onclick="openForm()"> Add Admin</a>
+    <a class="btn btn-primary p-5 pt-3 pb-3 mb-3" style="font-size: medium;font-weight: bold;margin-top:12px;  " class="open-button" onclick="openForm()"> Add Student</a>
 
 
   <table id="myTable" class="table">
@@ -224,9 +223,9 @@ a:hover{
       <th style="width:10%;">Action</th>
     </tr>
     <tr>
-      <td>Ayoub Izourane</td>
-      <td>ayoub</td>
-      <td>ayoubizourane@gmail.com</td>
+      <td>Mohamed Reda</td>
+      <td>D137519226</td>
+      <td>mohamedreda@gmail.com</td>
       <td>
         <a href="#">
           <span class="glyphicon glyphicon-edit"></span>
@@ -238,9 +237,9 @@ a:hover{
       </td>
     </tr>
     <tr>
-      <td>Youssef Elgoumri</td>
-      <td>y7goumri</td>
-      <td>youssefelgoumri@gmail.com</td>
+      <td>Amina Bennacer</td>
+      <td>D0000000</td>
+      <td>aminabennacer@gmail.com</td>
       <td>
         <a href="#">
           <span class="glyphicon glyphicon-edit"></span> 
@@ -250,8 +249,33 @@ a:hover{
         </a>
       </td>
     </tr>
-
-
+    <tr>
+      <td>Khalid Benali</td>
+      <td>D99999999</td>
+      <td>khalidbenali@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a> &nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>Said Aguerd</td>
+      <td>D11111111</td>
+      <td>saidaguerd@gmail.com</td>
+      <td>
+        <a href="#">
+          <span class="glyphicon glyphicon-edit"></span> 
+        </a>&nbsp;
+        <a href="">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
   </table>
   </div>
   
@@ -279,12 +303,16 @@ a:hover{
 
 <input class="forminput" type="text" placeholder="Phone" name="phone" required>
 
+<input class="forminput" type="text" placeholder="Class" name="class" required>
 
+<label class="forminput"><b>Genre :</b></label>
+<label class="genre" ><b>Male</b></label><input type="radio"  name="genre" value="male">
+<label class="genre"><b>Female</b></label><input type="radio"  name="genre" value="female">
 
 <br>
 
 
-<button type="submit" class="btn" id="btnAdd">Add Admin</button>
+<button type="submit" class="btn" id="btnAdd">Add Student</button>
 
 </form>
 </div>

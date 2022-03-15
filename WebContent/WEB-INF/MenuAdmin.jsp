@@ -21,22 +21,26 @@
     </div>
   </div>
 <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
+  <header class="header-area header-sticky" style="z-index: 1">
+      <div class="container" >
           <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
+              <div class="col-12" >
+                  <nav class="main-nav" >
                       <!-- ***** Logo Start ***** -->
-                      <a href="Home.jsp" class="logo">
+                      <a href="HomeAdmin.jsp" class="logo">
                           Admin Dashboard
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li ><a href="HomeAdmin" class="active">Home</a></li>
+                          <li ><a href="HomeAdmin">Home</a></li>
                           <li><a href="Admins">Admins</a></li>
                           <li><a href="Students">Students</a></li>
                           <li><a href="Modules">Modules</a></li>
+                          <li><a href="#" >
+         					 <span class="glyphicon glyphicon-log-out"></span> Log out
+       						 </a></li>
+                          
                      
                       </ul>        
                       <a class='menu-trigger'>
