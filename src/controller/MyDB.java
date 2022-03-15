@@ -1,11 +1,12 @@
-package Module;
+package controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import model.User;
 
 public class MyDB {
 	public static Connection cn;
@@ -29,7 +30,7 @@ public class MyDB {
 	public static int insertAccount(User user) {
 		try {
 			String sql = "insert into user(id_user,username,password,role) values("+user.getId_user()+",'"+user.getUsername()+"','"+user.getPassword()+"',"+user.isRole()+")";
-			Connection cn = MyDB.getConnection();
+			cn = MyDB.getConnection();
 			st.executeUpdate(sql);
 			return 1;
 		} catch (SQLException e) {
@@ -41,7 +42,7 @@ public class MyDB {
 	public static String showFullname(User user) {
 		try {
 			String sql = "select full_name from user where username = '"+user.getUsername()  +"' ";
-			Connection cn = MyDB.getConnection();
+			cn = MyDB.getConnection();
 			ResultSet rs = st.executeQuery(sql);
 			return String.valueOf(rs);
 		} catch (SQLException e) {
