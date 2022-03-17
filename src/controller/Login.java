@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 				User user = mydb.getUser(username);
 				String fullName = user.getFull_name();
 				//Cookie cfullname = new Cookie("cfullname",fullName);
-				setCookie(response,"cfullname","Hello World",60 * 60 * 24 * 30);
+				setCookie(response,"cfullname",fullName,60 * 60 * 24 * 30);
 	            //cfullname.setMaxAge(60 * 60 * 24 * 30);
 	            //response.addCookie(cfullname);
 				//request.setAttribute("fullname", user.getFull_name());
@@ -139,7 +139,7 @@ public class Login extends HttpServlet {
         
         
         
-        
+        //create cookie with space in firstname and lastname
         private static void setCookie( HttpServletResponse response, String nom, String valeur, int maxAge )throws IOException { 
             Cookie cookie = new Cookie( nom, URLEncoder.encode( valeur, "UTF-8" ) );
             cookie.setMaxAge( maxAge );

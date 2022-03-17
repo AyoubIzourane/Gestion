@@ -1,21 +1,42 @@
 package model;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
-
-public class Student{
+@Entity
+@DiscriminatorValue("S")
+public class Student extends Person{
 	
-	private static int id_student;
+	@Column(name="genre")
 	private String genre;
+	@Column(name="classe")
 	private String classe;
-	Set<Note> note;
 	
-	public static int getId_student() {
-		return id_student;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "student_module", 
+			  joinColumns = @JoinColumn(name = "id_person"), 
+			  inverseJoinColumns = @JoinColumn(name = "id_module"))
+	private List<Module> module = new ArrayList<>();
+	
+	public Student() {
+		
 	}
-	public static void setId_student(int id_student) {
-		Student.id_student = id_student;
+	
+	public Student(String genre, String classe) {
+		super();
+		this.genre = genre;
+		this.classe = classe;
 	}
+	
+	
 	public String getGenre() {
 		return genre;
 	}
@@ -28,12 +49,21 @@ public class Student{
 	public void setClasse(String classe) {
 		this.classe = classe;
 	}
-	public Set<Note> getNote() {
-		return note;
+	public List<Module> getModule() {
+		return module;
 	}
-	public void setNote(Set<Note> note) {
-		this.note = note;
+	public void setModule(List<Module> module) {
+		this.module = module;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [genre=" + genre + ", classe=" + classe + ", getId_user()=" + getId_user() + ", getFname()="
+				+ getFname() + ", getLname()=" + getLname() + ", getUsername()=" + getUsername() + ", getPassword()="
+				+ getPassword() + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone() + ", isRole()=" + isRole()
+				+ "]";
 	}
 	
-
+	
+	
 }
