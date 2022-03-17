@@ -1,25 +1,42 @@
 package model;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-
-public class User{
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="person_type")
+public class Person implements Serializable {
 	
-	private int id_user;
-	private String full_name;
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name="id_person")
+	private int id_person;
+	@Column(name="first_name",length = 50)
+	private String fname;
+	@Column(name="last_name",length = 50)
+	private String lname;
+	@Column(name="username", unique=true, length = 50)
 	private String username;
+	@Column(name="password",length = 50)
 	private String password;
+	@Column(name="email", unique=true, length = 50)
 	private String email;
+	@Column(name="phone",length = 50)
 	private String phone;
+	@Column(name="role")
 	private boolean role;
 	
-	public User() {
+	
+	
+	public Person() {
 	}
 	
 	/*public User(String username, String password, boolean role) {
@@ -31,21 +48,28 @@ public class User{
 	
 
 	public int getId_user() {
-		return id_user;
+		return id_person;
 	}
 
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
+	public void setId_user(int id_person) {
+		this.id_person = id_person;
 	}
 
-	public String getFull_name() {
-		return full_name;
+	public String getFname() {
+		return fname;
 	}
 
-	public void setFull_name(String fname) {
-		this.full_name = fname;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 	
+	public String getLname() {
+		return lname;
+	}
+	
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
 
 
 	public String getUsername() {
