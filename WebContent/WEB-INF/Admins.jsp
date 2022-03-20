@@ -203,7 +203,15 @@ a:hover{
  <!-- ***** Menu Bar ***** -->
 <div style="margin-bottom:150px;"><%@include file="MenuAdmin.jsp" %></div>
  
-
+<sql:setDataSource
+        var="db"
+        driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3308/jeeproject"
+        user="root" password=""
+    />     
+     <sql:query var="listUsers"   dataSource="${db}">
+        SELECT * FROM person where role=1;
+    </sql:query>
 
   <div class="container">
     
@@ -218,39 +226,42 @@ a:hover{
 
   <table id="myTable" class="table">
     <tr class="header">
+    
       <th style="width:20%;">Full Name</th>
       <th style="width:20%;">Username</th>
       <th style="width:20%;">Email</th>
+      <th style="width:20%;">Phone</th>
       <th style="width:10%;">Action</th>
     </tr>
-    <tr>
-      <td>Ayoub Izourane</td>
-      <td>ayoub</td>
-      <td>ayoubizourane@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a> &nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
+ 
+    
+    
+    <c:forEach var="admin" items="${listUsers.rows}">
+              
+                <tr>
+                    
+                    <td><c:out value="${admin.first_name} ${admin.last_name}" /></td>
+                    <td><c:out value="${admin.username}" /></td>
+                    <td><c:out value="${admin.email}" /></td>
+                    <td><c:out value="${admin.phone}" /></td>
+                  
+                  <td>
+       			 <a href="#" onclick='openForm()'>
+       		     <span class="glyphicon glyphicon-edit"></span>
+     			 </a> &nbsp;
+    			
+    			 <a onclick="return confirm('Are your sure ?')" href="deleteAdmin?id_person=${admin.id_person}">
+          		 <span class="glyphicon glyphicon-trash"></span>
+        		 </a>
 
-      </td>
-    </tr>
-    <tr>
-      <td>Youssef Elgoumri</td>
-      <td>y7goumri</td>
-      <td>youssefelgoumri@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span> 
-        </a> &nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-      </td>
-    </tr>
-
+     			 </td>
+           
+                 
+                   
+                </tr>
+                  
+            </c:forEach>
+   
 
   </table>
   </div>
@@ -269,9 +280,9 @@ a:hover{
 
 
 
-<input class="forminput" type="text" placeholder="Fname" name="firstname" required>
+<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
 
-<input class="forminput" type="text" placeholder="lname" name="lastname" required>
+<input class="forminput" type="text" placeholder="lastname" name="lastname" required>
 
 
 <input class="forminput" type="text" placeholder="Username" name="username" required>
