@@ -265,11 +265,14 @@ a:hover{
     </button>
 
 
-<form action="" class="form-container">
+<form action="insertAdmin" class="form-container">
 
 
 
-<input class="forminput" type="text" placeholder="Fullname" name="fullname" required>
+<input class="forminput" type="text" placeholder="Fname" name="firstname" required>
+
+<input class="forminput" type="text" placeholder="lname" name="lastname" required>
+
 
 <input class="forminput" type="text" placeholder="Username" name="username" required>
 

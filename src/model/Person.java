@@ -32,7 +32,7 @@ public class Person implements Serializable {
 	@Column(name="phone",length = 50)
 	private String phone;
 	@Column(name="role")
-	private boolean role;
+	private boolean role=true;
 	
 	
 	
