@@ -15,7 +15,7 @@ import model.Person;
 /**
  * Servlet implementation class Modules
  */
-@WebServlet(name="Admins", urlPatterns={"/Admins","/insertAdmin","/supprimerAdmin"})
+@WebServlet(name="Admins", urlPatterns={"/Admins","/insertAdmin","/updateAdmin","/deleteAdmin"})
 public class Admins extends HttpServlet{
       @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,7 +70,7 @@ public class Admins extends HttpServlet{
       
       	}
       	
-      	else if (path.equals("/supprimerAdmin"))
+      	else if (path.equals("/deleteAdmin"))
       	{
       		int id= Integer.parseInt(request.getParameter("id_person"));
       		admindaoimp.removeEntity(id);

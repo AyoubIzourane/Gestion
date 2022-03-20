@@ -5,7 +5,7 @@ import model.Person;
 
 public interface AdminDao {
 	public void insertEntity(Person person);
-	 public void findEntity();
+	public Person findEntity(int id);
 	 public void updateEntity(Person person) ;
 	 public void removeEntity(int id);
 }

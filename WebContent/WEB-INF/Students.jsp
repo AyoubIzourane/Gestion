@@ -202,7 +202,15 @@ a:hover{
  <!-- ***** Menu Bar ***** -->
 <div style="margin-bottom:150px;"><%@include file="MenuAdmin.jsp" %></div>
  
-
+<sql:setDataSource
+        var="db"
+        driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3308/jeeproject"
+        user="root" password=""
+    />     
+     <sql:query var="listStudents"   dataSource="${db}">
+        SELECT * FROM person p join student s where s.id_person = p.id_person;
+    </sql:query>
 
   <div class="container">
     
@@ -220,62 +228,40 @@ a:hover{
       <th style="width:20%;">Full Name</th>
       <th style="width:20%;">Username</th>
       <th style="width:20%;">Email</th>
+      <th style="width:20%;">Class</th>
+      <th style="width:20%;">Gender</th>
       <th style="width:10%;">Action</th>
     </tr>
-    <tr>
-      <td>Mohamed Reda</td>
-      <td>D137519226</td>
-      <td>mohamedreda@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a> &nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
+    
+    </tr>
+    
+        <c:forEach var="student" items="${listStudents.rows}">
+              
+                <tr>
+                    
+                    <td><c:out value="${student.first_name} ${student.last_name}" /></td>
+                    <td><c:out value="${student.username}" /></td>
+                    <td><c:out value="${student.email}" /></td>
+                    <td><c:out value="${student.classe}" /></td>
+                    <td><c:out value="${student.genre}" /></td>
+                  
+                  <td>
+       			 <a href="#" onclick='openForm()'>
+       		     <span class="glyphicon glyphicon-edit"></span>
+     			 </a> &nbsp;
+    			
+    			 <a onclick="return confirm('Are you sure ?')" href="deleteStudent?id_person=${student.id_person}">
+          		 <span class="glyphicon glyphicon-trash"></span>
+        		 </a>
 
-      </td>
-    </tr>
-    <tr>
-      <td>Amina Bennacer</td>
-      <td>D0000000</td>
-      <td>aminabennacer@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span> 
-        </a> &nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Khalid Benali</td>
-      <td>D99999999</td>
-      <td>khalidbenali@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a> &nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Said Aguerd</td>
-      <td>D11111111</td>
-      <td>saidaguerd@gmail.com</td>
-      <td>
-        <a href="#">
-          <span class="glyphicon glyphicon-edit"></span> 
-        </a>&nbsp;
-        <a href="">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-      </td>
-    </tr>
+     			 </td>
+           
+                 
+                   
+                </tr>
+                  
+            </c:forEach>
+
   </table>
   </div>
   
@@ -289,11 +275,13 @@ a:hover{
     </button>
 
 
-<form action="" class="form-container">
+<form action="insertStudent" class="form-container">
 
 
 
-<input class="forminput" type="text" placeholder="Fullname" name="fullname" required>
+<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
+
+<input class="forminput" type="text" placeholder="Lastname" name="lastname" required>
 
 <input class="forminput" type="text" placeholder="Username" name="username" required>
 
@@ -303,7 +291,7 @@ a:hover{
 
 <input class="forminput" type="text" placeholder="Phone" name="phone" required>
 
-<input class="forminput" type="text" placeholder="Class" name="class" required>
+<input class="forminput" type="text" placeholder="Class" name="classe" required>
 
 <label class="forminput"><b>Genre :</b></label>
 <label class="genre" ><b>Male</b></label><input type="radio"  name="genre" value="male">
