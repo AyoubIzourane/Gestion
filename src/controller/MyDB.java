@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import model.Person;
 import model.User;
 
 public class MyDB {
@@ -17,7 +18,7 @@ public class MyDB {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection("jdbc:mysql://localhost:3308/gestion_notes","root","");
+			cn = DriverManager.getConnection("jdbc:mysql://localhost:3308/jeeproject","root","");
 			st=cn.createStatement();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,17 +40,6 @@ public class MyDB {
 		}
 	}
 	
-	public static String showFullname(User user) {
-		try {
-			String sql = "select full_name from user where username = '"+user.getUsername()  +"' ";
-			cn = MyDB.getConnection();
-			ResultSet rs = st.executeQuery(sql);
-			return String.valueOf(rs);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 	
 	//replace the last method with this
 	public static User getUser(String username) throws SQLException {
@@ -65,10 +55,28 @@ public class MyDB {
 		
 	}
 	
-	/*public static boolean checkAccount(String username,String password) {
+	
+	public static Person getPerson(String username) throws SQLException {
+		Person p = new Person();
+		String sql = "select id_person,first_name,last_name from person where username = '"+username +"'";
+		cn = MyDB.getConnection();
+		rs = st.executeQuery(sql);
+		
+		while(rs.next()){
+			p.setId_user(Integer.parseInt(rs.getString(1)));
+			p.setFname(rs.getString(2));
+			p.setLname(rs.getString(3));
+		}
+		return p;
+		
+	}
+	
+	
+	public static boolean checkAccountAdmin(String username,String password) {
 		boolean res = false;
 		try {
-			String sql = "select username,password from login where username='"+ username +"' and password='"+password+"'";
+			String sql = "select username,password from person where username='"+ username +"' and password='"+password
+					+"' and role = 1";
 			cn = MyDB.getConnection();
 
 			rs = st.executeQuery(sql);
@@ -80,8 +88,27 @@ public class MyDB {
 			e.printStackTrace();
 		}
 		return res;
-	}*/
+	}
 	
+	
+	public static boolean checkAccount(String username,String password) {
+		boolean res = false;
+		try {
+			String sql = "select username,password from person where username='"+ username +"' and password='"+password
+					+"' and role = 0 ";
+
+			cn = MyDB.getConnection();
+
+			rs = st.executeQuery(sql);
+			while(rs.next()){
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
 	
 	
 

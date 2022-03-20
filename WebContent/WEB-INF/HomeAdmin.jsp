@@ -28,7 +28,7 @@
 
 <div><%@include file="MenuAdmin.jsp" %></div>
   
-  <!-- ***** Main Banner Area Start ***** -->
+  <!-- ** Main Banner Area Start ** -->
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
           <source src="images/course-video.mp4" type="video/mp4" />
@@ -42,9 +42,18 @@
 
               <h2>Welcome
                <%
-              
-               String fullname = (String)request.getAttribute("fullname");
-               out.print(fullname); 
+               Cookie[] cookies = request.getCookies();
+               String cfname=null,clname=null;
+               
+             for (Cookie cookie : cookies) {
+                 if (cookie.getName().equals("cfname")) {
+                     cfname = cookie.getValue();
+                 }
+                 if(cookie.getName().equals("clname")){
+                     clname = cookie.getValue();
+                 }
+             }
+             out.println(cfname + " " + clname);
               %></h2>
              
             
