@@ -18,13 +18,14 @@ public class AdminDaoImp implements AdminDao{
         entityManager.close();
     }
 
-    public void findEntity() {
+	public Person findEntity(int id) {
         EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
-        entityManager.getTransaction().begin();
-        Person person= entityManager.find(Person.class, 1);
-       
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+
+        Person person = entityManager.find(Person.class, id);
         entityManager.getTransaction().commit();
         entityManager.close();
+        return person;
     }
 
     public void updateEntity(Person p) {
