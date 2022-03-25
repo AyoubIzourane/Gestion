@@ -27,7 +27,7 @@
               <div class="col-12" >
                   <nav class="main-nav" >
                       <!-- ***** Logo Start ***** -->
-                      <a href="HomeAdmin.jsp" class="logo">
+                      <a href="HomeAdmin" class="logo">
                           Admin Dashboard
                       </a>
                       <!-- ***** Logo End ***** -->
