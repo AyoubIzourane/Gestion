@@ -30,11 +30,15 @@
 
         <script src="js/addform.js"></script>
 <link rel="stylesheet" href="css/addform.css">
+
+
+		  <link rel="stylesheet" href="css/table.css">
+		  <script src="js/searchTab.js"></script>
+
     
 
-  <style>
-  
-  body{
+    <style>
+    body{
   background-color: #666565;
   position: fixed;
   right: 0;
@@ -50,150 +54,14 @@
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
+
 }
 
 .pagelabel{
   color:#eb9f28;
 }
-
-input{
-  background-color: rgb(245, 245, 245);
-}
-
-
-
-input:hover {
-  background-color: white;
-}
-
-button{
-  size: 40%;
-}
-table{
-  border-radius: 3px;
-}
-
-#myTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  font-size: 18px; /* Increase font-size */
-  background-color: rgb(245, 245, 245);
-  border: 2px solid #eb9f28 !important;
-}
-
-#myTable th, #myTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
-}
-
-#myTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header {
-  /* Add a grey background color to the table header and on hover */
-  background-color: #eb9f28;
-  color: white;
-}
-#myTable tr:hover:not(.header) {
-  /* Add a grey background color to the table header and on hover */
-  background-color: white;
-}
-
-h1{
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: xx-large;
-  padding: 20px;
-}
-
-a{
-  color: #eb9f28;
-}
-a:hover{
-  background-color: white;
-  color: black;
-}
-.btn-primary{
-  background-color: #eb9f28;
-  border-color: #eb9f28;
-  color: white;
-}
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #eb9f28;
-    background-color: white;
-    border-color: #eb9f28; /*set the color you want here*/
-}
   </style>
   
-  <script>
-    function myFunction() {
-      // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-
-    function myFunction2() {
-      // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput2");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-
-    function myFunction3() {
-      // Declare variables
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput3");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-    </script>
 
 </head>
 

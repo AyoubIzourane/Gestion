@@ -74,7 +74,7 @@ public class Admins extends HttpServlet{
       	{
       		int id= Integer.parseInt(request.getParameter("id_person"));
       		admindaoimp.removeEntity(id);
-      	
+      	System.out.println(id);
       		RequestDispatcher dd=request.getRequestDispatcher("Admins");
       		dd.forward(request, response);
       
