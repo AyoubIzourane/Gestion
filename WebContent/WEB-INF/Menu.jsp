@@ -34,7 +34,7 @@
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li ><a href="Home" class="active">Home</a></li>
-                          <li><a href="Modules">Modules</a></li>
+                          <li><a href="Modules">Subjects</a></li>
                      
                       </ul>        
                       <a class='menu-trigger'>
