@@ -18,8 +18,15 @@ public class Module implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="id_module")
 	private int id_module;
+	
 	@Column(name="module_name")
 	private String module_name;
+	
+	@Column(name="module_num")
+	private int module_num; 
+	
+	@Column(name="teacher_name")
+	private String teacher_name;
 	
 	@ManyToMany
 	@JoinTable(
@@ -41,6 +48,22 @@ public class Module implements Serializable{
 	}
 	public void setModule_name(String module_name) {
 		this.module_name = module_name;
+	}
+	
+	
+	
+	
+	public int getModule_num() {
+		return module_num;
+	}
+	public void setModule_num(int module_num) {
+		this.module_num = module_num;
+	}
+	public String getTeacher_name() {
+		return teacher_name;
+	}
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
 	}
 	public List<Student> getStudent() {
 		return student;

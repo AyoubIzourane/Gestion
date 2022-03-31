@@ -36,7 +36,7 @@
                           <li ><a href="HomeAdmin">Home</a></li>
                           <li><a href="Admins">Admins</a></li>
                           <li><a href="Students">Students</a></li>
-                          <li><a href="Modules">Modules</a></li>
+                          <li><a href="ModuleAdmin">Subjects</a></li>
                           <li><a href="#" >
          					 <span class="glyphicon glyphicon-log-out"></span> Log out
        						 </a></li>
