@@ -36,7 +36,7 @@
       }
      
       form{
-          height: 520px;
+          height: 590px;
           width: 400px;
           background-color: rgba(255, 255, 255, 0.541);
           position: absolute;
@@ -141,8 +141,14 @@
 #forgetpasswordlabel{
 	font-size:15px;
 	text-align: center;
-	margin-top:2px;
-	
+	position:relative;
+	top:20px;
+	text-decoration: none;	
+}
+#wrongPass{
+color:red;
+font-size:10px;
+margin-left:20px;
 }
       
           </style>
@@ -171,7 +177,15 @@
               <div class="shape"></div>
               <div class="shape"></div>
           </div>
+  
           <form name="myForm" action="Login" method="POST" required>
+         <p id="wrongPass"> <%
+		  			if(request.getAttribute("message")!=null)
+		  			{
+		  				out.print("<p class='text-danger ml-1'>"+request.getAttribute("message")+"</p>");
+		  			}
+		  
+		  %></p>
               <h3>Login</h3>
       
               <label for="username">Username</label>
@@ -185,7 +199,7 @@
               
 
               <button onclick="return validateForm()">Log In</button>
-              <label id="forgetpasswordlabel">Forget Password?</label>
+              <a href="forgotPassword.jsp" id="forgetpasswordlabel">Forget Password?</a>
              
           </form>
       </body>

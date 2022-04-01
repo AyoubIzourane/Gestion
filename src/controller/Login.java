@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -91,7 +92,7 @@ public class Login extends HttpServlet {
 				e1.printStackTrace();
 			}
             
-             
+            RequestDispatcher dispatcher=null;
              //for connection to db DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_notes","root","");
              
              System.out.print(role);
@@ -99,14 +100,21 @@ public class Login extends HttpServlet {
             	 if(MyDB.checkAccountAdmin(username, password)) {
       				 this.getServletContext().getRequestDispatcher("/WEB-INF/HomeAdmin.jsp").forward(request, response);
             	 }else {
-            		 out.println("<h1>error</h1>");
-      				 this.getServletContext().getRequestDispatcher("/index.html").include(request, response);
+            		 request.setAttribute("message","Wrong Username or Password");
+         			
+          		   dispatcher=request.getRequestDispatcher("index.jsp");
+          			dispatcher.forward(request, response);
+            	
             	 }
              }else {
             	 if(MyDB.checkAccount(username, password)) {
       				 this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
             	 }else {
-      				 this.getServletContext().getRequestDispatcher("/index.html").include(request, response);
+            		 request.setAttribute("message","Wrong Username or Password");
+          			
+            		   dispatcher=request.getRequestDispatcher("index.jsp");
+            			dispatcher.forward(request, response);
+      				
             	 }
              }
              
