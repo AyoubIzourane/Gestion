@@ -96,9 +96,9 @@
       <th style="width:20%;">Full Name</th>
       <th style="width:20%;">Username</th>
       <th style="width:20%;">Email</th>
-      <th style="width:20%;">Class</th>
-      <th style="width:20%;">Gender</th>
-      <th style="width:10%;">Action</th>
+      <th style="width:15%;">Class</th>
+      <th style="width:15%;">Gender</th>
+      <th style="width:15%;">Action</th>
     </tr>
     
     </tr>
@@ -114,13 +114,18 @@
                     <td><c:out value="${student.genre}" /></td>
                   
                   <td>
+                  
+                  <a href="viewStudent?id_person=${student.id_person}">
+          		 <span class="glyphicon glyphicon-eye-open"></span>
+        		 </a>
        			 <a href="#" onclick='openForm()'>
        		     <span class="glyphicon glyphicon-edit"></span>
-     			 </a> &nbsp;
+     			 </a>
     			
     			 <a onclick="return confirm('Are you sure ?')" href="deleteStudent?id_person=${student.id_person}">
           		 <span class="glyphicon glyphicon-trash"></span>
         		 </a>
+        		 
 
      			 </td>
            
@@ -170,9 +175,9 @@
 
 <button type="submit" class="btn" id="btnAdd">Add Student</button>
 
-</form>
-</div>
 
+
+</div>
 
 
 

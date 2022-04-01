@@ -2,6 +2,7 @@ package controller;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ import model.Student;
  * Servlet implementation class Modules
  */
 
-@WebServlet(name="Students", urlPatterns={"/Students","/insertStudent","/updateStudent","/deleteStudent"})
+@WebServlet(name="Students", urlPatterns={"/Students","/insertStudent","/updateStudent","/deleteStudent","/viewStudent"})
 public class Students extends HttpServlet{
       @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,6 +90,17 @@ public class Students extends HttpServlet{
       		dd.forward(request, response);
       
       	}
+      	else if(path.equals("/viewStudent")) {
+      		int id= Integer.parseInt(request.getParameter("id_person"));
+      		student = studentdaoimp.findEntity(id);
+      		List<Module> modules = studentdaoimp.getModules(id);
+      		request.setAttribute("student", student);
+      		request.setAttribute("modules", modules);
+    		this.getServletContext().getRequestDispatcher("/WEB-INF/DetailsStudent.jsp").forward(request, response);
+
+      	}
+      	
+      	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Students.jsp").forward(request, response);
 	}
 	/**

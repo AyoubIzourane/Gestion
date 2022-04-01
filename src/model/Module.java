@@ -73,7 +73,12 @@ public class Module implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Module [id_module=" + id_module + ", module_name=" + module_name + "]";
+		return "Module [id_module=" + id_module + ", module_name=" + module_name + ", module_num=" + module_num
+				+ ", teacher_name=" + teacher_name + ", student=" + student + ", getId_module()=" + getId_module()
+				+ ", getModule_name()=" + getModule_name() + ", getModule_num()=" + getModule_num()
+				+ ", getTeacher_name()=" + getTeacher_name() + ", getStudent()=" + getStudent() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 }
