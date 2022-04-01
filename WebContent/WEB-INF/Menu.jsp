@@ -35,6 +35,9 @@
                       <ul class="nav">
                           <li ><a href="Home" class="active">Home</a></li>
                           <li><a href="Modules">Subjects</a></li>
+                          <li><a href="index.jsp" >
+         					 <span class="glyphicon glyphicon-log-out"></span> Log out
+       						 </a></li>
                      
                       </ul>        
                       <a class='menu-trigger'>
