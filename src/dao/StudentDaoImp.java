@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -22,8 +25,14 @@ public class StudentDaoImp implements StudentDao {
 
 	@Override
 	public Student findEntity(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Student student = new Student();
+		EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        student = entityManager.find(Student.class,id);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return student;
 	}
 
 	@Override
@@ -43,6 +52,18 @@ public class StudentDaoImp implements StudentDao {
 	        entityManager.getTransaction().begin();
 	        entityManager.remove(person);
 	        entityManager.getTransaction().commit();
+		
+	}
+	
+	public List<Module> getModules(int id){
+		EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        
+		List<Module> modules = 
+				entityManager.createQuery("select m from Student s join s.module m where s.id_person = "+id).getResultList();
+		
+		return modules;
 		
 	}
 
