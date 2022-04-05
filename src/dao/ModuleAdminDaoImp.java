@@ -21,9 +21,9 @@ public class ModuleAdminDaoImp implements ModuleAdminDao{
 	public Module findEntity(int id) {
         EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
-
+        entityTransaction.begin();
         Module module = entityManager.find(Module.class, id);
-        entityManager.getTransaction().commit();
+        entityTransaction.commit();
         entityManager.close();
         return module;
     }
