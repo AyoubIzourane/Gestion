@@ -174,7 +174,7 @@
 
 
 <button type="submit" class="btn" id="btnAdd">Add Student</button>
-
+</form>
 
 
 </div>

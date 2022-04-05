@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Module implements Serializable{
@@ -34,7 +35,11 @@ public class Module implements Serializable{
 			  joinColumns = @JoinColumn(name = "id_module"), 
 			  inverseJoinColumns = @JoinColumn(name = "id_person"))
 	private List<Student> student = new ArrayList<>();
+	
 
+	public Module() {
+		
+	}
 	
 	public int getId_module() {
 		return id_module;
