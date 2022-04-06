@@ -1,17 +1,12 @@
+
+    
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="TemplateMo">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <title>Modules</title>
-
-    <!-- Bootstrap core CSS -->
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Insert title here</title>
+  <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -20,41 +15,108 @@
     <link rel="stylesheet" href="css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="css/owl.css">
     <link rel="stylesheet" href="css/lightbox.css">
-<!--
-
-TemplateMo 569 Edu Meeting
-
-https://templatemo.com/tm-569-edu-meeting
-
--->
-  </head>
-
+    <style>
+     body{
+  background-color: #666565;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;}
+    </style>
+</head>
 <body>
+<!-- ***** Menu Bar ***** -->
+<div style="margin-bottom:150px;"><%@include file="Menu.jsp" %></div>
+ 
+<sql:setDataSource
+        var="db"
+        driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3308/jeeproject"
+        user="root" password=""
+    />     
+    
+    
+    <!-- ***** For Student Information ***** -->
+     <sql:query var="listStudents"   dataSource="${db}">
+        SELECT * FROM person p join student s on p.id_person = s.id_person where username =  '${username}';
+    </sql:query>
 
-
-    <%@include file="Menu.jsp" %>
-  
-  <!-- ***** Main Banner Area Start ***** -->
-  <section class="section main-banner" id="top" data-section="section1">
-      <video autoplay muted loop id="bg-video">
-          <source src="images/course-video.mp4" type="video/mp4" />
-      </video>
-
-      <div class="video-overlay header-text">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="caption">
-              
-              <h2>Modules Page</h2>
-             
-            
-          </div>
-              </div>
+<div class="container">
+        <div class="panel panel-success margin-top">
+            <div class="panel-heading">Student : </div>
+            <div class="panel-body">	
+            <table>
+             <c:forEach var="student" items="${listStudents.rows}">
+            <tr>
+            	<td>Name : </td>
+            	<td style="padding-left:300px"><c:out value="${student.first_name} ${student.last_name}" /></td>      
+            </tr>
+            <tr>
+           		<td>CNE :</td>
+            	<td style="padding-left:300px"><c:out value="${username}" /></td>
+            </tr>
+            <tr>
+            	<td>Class : </td>
+            	<td style="padding-left:300px"><c:out value="${student.classe}" /></td>
+            </tr>
+            </c:forEach>
+            </table>
+           		
             </div>
-          </div>
-      </div>
-  </section>
+        </div>
+        
+        
+        
+        <!-- ***** For Student's Subject Information ***** -->
+        
+       <sql:query var="listSubjects"   dataSource="${db}">
+        SELECT * FROM person p join student_module sm on p.id_person = sm.id_person join module m on sm.id_module = m.id_module where username = '${username}';
+    </sql:query>
+        
 
+        <div class="panel panel-primary">
+            <div class="panel-heading">Subjects :</div>
+            <div class="panel-body">
+            	 <table>
+            	 <th  style="color:blue;padding-bottom:30px;">
+            	 Subject
+            	 </th>
+            	 <th style="color:blue;padding-left:300px;padding-bottom:30px">
+            	 Note
+            	 </th>
+            	 
+            	 <!-- ***** Declare Variables to calculate result total and Sum of Subjects***** -->
+             <c:set var="total" value="${0}"/>
+             <c:set var="NumbersOfSubject" value="${0}"/>
+             
+             
+             <c:forEach var="subject" items="${listSubjects.rows}">
+            <tr>
+            	<td><c:out value="${subject.module_name}" /></td>    
+            	<td style="padding-left:300px"><c:out value="${subject.note}" />
+            	 <c:set var="total" value="${total + subject.note}" />
+            	 <c:set var="NumbersOfSubject" value="${NumbersOfSubject+1}" /></td>    
+            </tr>
+            
+            </c:forEach>
+            <tr style="color:blue;">
+            <td style="padding-top:40px;font-weight: 700;"> Resultat:</td>
+            <td style="padding-left:300px;padding-top:40px;font-weight: 700;"> <c:out value="${total/NumbersOfSubject}" /></td>
+            <td style="padding-left:300px;padding-top:40px;font-weight: 700;">
+            <c:if test="${total/NumbersOfSubject>=10}"><c:out value="this semister is validated"/></c:if>
+            <c:if test="${total/NumbersOfSubject<10}"><c:out value="this semister is not Validated"/></c:if></td>
+            </tr>
+            </table>
+            
+            
+    	
+            
+            </div>
+        </div>
+        
+            
+           
+</div>
 </body>
 </html>

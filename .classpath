@@ -17,17 +17,17 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/jdk-15.0.1/lib/jrt-fs.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ayoub/Downloads/JDK&apos;s/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jdk-17.0.1/lib/jrt-fs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ayoub/Downloads/JDK&apos;s/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/eclipselink">
 		<attributes>
-			<attribute name="owner.project.facets" value="#system#;jpt.jpa"/>
+			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql-jdbc">
 		<attributes>
-			<attribute name="owner.project.facets" value="#system#;jpt.jpa"/>
+			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
@@ -36,40 +36,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/bin/bootstrap.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/bin/commons-daemon.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/bin/tomcat-juli.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/annotations-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina-ant.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina-ha.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina-ssi.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina-storeconfig.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/catalina-tribes.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/ecj-4.20.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/el-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/jasper.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/jasper-el.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/jaspic-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-api.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-coyote.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-cs.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-de.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-es.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-fr.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-ja.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-ko.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-pt-BR.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-ru.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-i18n-zh-CN.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-jdbc.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-jni.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-util.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-util-scan.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/tomcat-websocket.jar"/>
-	<classpathentry kind="lib" path="D:/study/s6/JEE/apache-tomcat-9.0.58/lib/websocket-api.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

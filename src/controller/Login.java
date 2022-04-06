@@ -15,6 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Person;
 import model.User;
@@ -108,7 +109,11 @@ public class Login extends HttpServlet {
             	 }
              }else {
             	 if(MyDB.checkAccount(username, password)) {
-      				 this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
+            		 HttpSession session = request.getSession();
+            		 session.setAttribute("username", username);
+          		 
+      				 
+            		 this.getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
             	 }else {
             		 request.setAttribute("message","Wrong Username or Password");
           			

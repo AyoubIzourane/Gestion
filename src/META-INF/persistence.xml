@@ -3,6 +3,7 @@
 	<persistence-unit name="Gestion">
 		<class>model.Module</class>
 		<class>model.Note</class>
+		<class>model.NoteId</class>
 		<class>model.Person</class>
 		<class>model.Student</class>
 		
