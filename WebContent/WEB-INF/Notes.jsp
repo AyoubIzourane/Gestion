@@ -79,7 +79,7 @@ function openEdit() {
 
 <body>
 
- <!-- ***** Menu Bar ***** -->
+ <!-- ** Menu Bar ** -->
 <div style="margin-bottom:150px;"><%@include file="MenuAdmin.jsp" %></div>
  
 <sql:setDataSource
@@ -210,11 +210,11 @@ function openEdit() {
 <form action="editN" class="form-container" method="post">
 
 <label>Student :</label>
-<label ><c:out value="${student.fname} ${student.lname}"/></label>
+<select name="id_person" ><option value="${idperson}"><c:out value="${student.fname} ${student.lname}"/></option></select>
 <br>
 
 <label>Subject :</label>
-<label><c:out value="${ module.module_name }"/></label>
+<select name="id_module" ><option value="${module.id_module }"><c:out value="${ module.module_name }"/></option></select>
 <br>
 <input class="forminput" type="text" name="date" placeholder="Exam Date" required value="${ed_note.exam_date }">
 <input class="forminput" type="text" name="note" placeholder="Note" required value="${ed_note.note }">

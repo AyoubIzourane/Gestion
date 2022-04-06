@@ -56,6 +56,8 @@ public class Notes extends HttpServlet {
       		
       		noteDao.insertEntity(note);
       		
+      		request.setAttribute("cle",0);
+
     		this.getServletContext().getRequestDispatcher("/WEB-INF/Notes.jsp").forward(request, response);
 
       	}
@@ -72,7 +74,8 @@ public class Notes extends HttpServlet {
       		System.out.println(noteId);
 
       		noteDao.removeEntity(noteId);
-      		
+      		request.setAttribute("cle",0);
+
     		this.getServletContext().getRequestDispatcher("/WEB-INF/Notes.jsp").forward(request, response);
       	}
       	
@@ -104,10 +107,11 @@ public class Notes extends HttpServlet {
       		s = sdao.findEntity(id_person);
       		
       		ModuleAdminDaoImp mdao = new ModuleAdminDaoImp();
-      		
+      		System.out.print("id : "+s.getId_user());
       		int i=1;
       		request.setAttribute("ed_note",note);
       		request.setAttribute("student",s);
+      		request.setAttribute("idperson",s.getId_user());
       		request.setAttribute("module",mdao.findEntity(id_module));
       		request.setAttribute("cle",i);
       		
@@ -115,7 +119,8 @@ public class Notes extends HttpServlet {
       	}
       	
       	
-      	
+  		request.setAttribute("cle",0);
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Notes.jsp").forward(request, response);
 	}
 
@@ -156,6 +161,7 @@ public class Notes extends HttpServlet {
       		
       		noteDao.insertEntity(note);
       		
+      		request.setAttribute("cle",0);
     		this.getServletContext().getRequestDispatcher("/WEB-INF/Notes.jsp").forward(request, response);
 
       	}
