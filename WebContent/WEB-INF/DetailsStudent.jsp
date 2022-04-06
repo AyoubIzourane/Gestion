@@ -6,9 +6,29 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <title>Insert title here</title>
+  <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="css/owl.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <style>
+     body{
+  background-color: #666565;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;}
+    </style>
 </head>
 <body>
-
+<!-- ***** Menu Bar ***** -->
+<div style="margin-bottom:150px;"><%@include file="MenuAdmin.jsp" %></div>
+ 
 
 <div class="container">
         <div class="panel panel-success margin-top">
