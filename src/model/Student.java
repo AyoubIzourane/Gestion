@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("S")
@@ -25,6 +26,7 @@ public class Student extends Person{
 			  joinColumns = @JoinColumn(name = "id_person"), 
 			  inverseJoinColumns = @JoinColumn(name = "id_module"))
 	private List<Module> module = new ArrayList<>();
+	
 	
 	public Student() {
 		

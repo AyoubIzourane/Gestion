@@ -16,9 +16,6 @@ import dao.StudentDaoImp;
 import model.Person;
 import model.Student;
 
-/**
- * Servlet implementation class Modules
- */
 
 @WebServlet(name="Students", urlPatterns={"/Students","/insertStudent","/updateStudent","/deleteStudent","/viewStudent"})
 public class Students extends HttpServlet{

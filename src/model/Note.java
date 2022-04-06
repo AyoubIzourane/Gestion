@@ -2,24 +2,31 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
 
-public class Note{
-	private int id_note;
+@Entity
+@Table(name="student_module")
+public class Note implements Serializable{
+	
+	@EmbeddedId
+     NoteId id = new NoteId();
+	
 	private float note;
 	private String exam_date;
-	private Student student;
-	private Module module;
 	
-	public int getId_note() {
-		return id_note;
+	
+	public NoteId getId() {
+		return id;
 	}
-	public void setId_note(int id_note) {
-		this.id_note = id_note;
+	public void setId(NoteId id) {
+		this.id = id;
 	}
 	public float getNote() {
 		return note;
@@ -32,18 +39,6 @@ public class Note{
 	}
 	public void setExam_date(String exam_date) {
 		this.exam_date = exam_date;
-	}
-	public Student getStudent() {
-		return student;
-	}
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-	public Module getModule() {
-		return module;
-	}
-	public void setModule(Module module) {
-		this.module = module;
 	}
 	
 }
