@@ -82,20 +82,7 @@ public class Notes extends HttpServlet {
       	else if (path.equals("/editNote")) {
       		int id_person = Integer.parseInt(request.getParameter("id_person"));
       		int id_module = Integer.parseInt(request.getParameter("id_module"));
-      		/*String exam_date = request.getParameter("date");
-      		float n = Float.parseFloat(request.getParameter("note"));
       		
-      		noteId.setId_person(id_person);
-      		noteId.setId_module(id_module);
-      		note.setId(noteId);
-      		System.out.println(noteId);
-
-      		note.setExam_date(exam_date);
-      		note.setNote(n);
-      		note.setId(noteId);
-      		System.out.println(noteId);
-
-      		noteDao.updateEntity(note);*/
       		noteId.setId_person(id_person);
       		noteId.setId_module(id_module);
       		note = noteDao.findEntity(noteId);
@@ -107,11 +94,11 @@ public class Notes extends HttpServlet {
       		s = sdao.findEntity(id_person);
       		
       		ModuleAdminDaoImp mdao = new ModuleAdminDaoImp();
-      		System.out.print("id : "+s.getId_user());
+      		System.out.print("id : "+s.getId_person());
       		int i=1;
       		request.setAttribute("ed_note",note);
       		request.setAttribute("student",s);
-      		request.setAttribute("idperson",s.getId_user());
+      		request.setAttribute("idperson",s.getId_person());
       		request.setAttribute("module",mdao.findEntity(id_module));
       		request.setAttribute("cle",i);
       		

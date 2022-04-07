@@ -37,8 +37,12 @@ public class StudentDaoImp implements StudentDao {
 
 	@Override
 	public void updateEntity(Student student) {
-		// TODO Auto-generated method stub
-		
+		EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+        entityManager.merge(student);
+        entityManager.getTransaction().commit();
+        entityManager.close();
 	}
 
 	@Override

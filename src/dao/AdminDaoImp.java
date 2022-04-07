@@ -21,22 +21,20 @@ public class AdminDaoImp implements AdminDao{
 	public Person findEntity(int id) {
         EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
-
+        entityTransaction.begin();
         Person person = entityManager.find(Person.class, id);
-        entityManager.getTransaction().commit();
+        entityTransaction.commit();
         entityManager.close();
         return person;
     }
 
     public void updateEntity(Person p) {
-        EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
-        
-
-       
-        EntityTransaction tx = entityManager.getTransaction();
-        tx.begin();
+    	EntityManager entityManager = JPAutil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
         entityManager.merge(p);
-        tx.commit();
+        entityManager.getTransaction().commit();
+        entityManager.close();
         
         
     }

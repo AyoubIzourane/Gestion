@@ -63,7 +63,7 @@ public class MyDB {
 		rs = st.executeQuery(sql);
 		
 		while(rs.next()){
-			p.setId_user(Integer.parseInt(rs.getString(1)));
+			p.setId_person(Integer.parseInt(rs.getString(1)));
 			p.setFname(rs.getString(2));
 			p.setLname(rs.getString(3));
 		}

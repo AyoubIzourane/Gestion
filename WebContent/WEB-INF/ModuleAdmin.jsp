@@ -64,6 +64,17 @@
 
   </style>
   
+  
+<script >
+function openEdit() {
+    document.getElementById("myFormEdit").style.display = "block";
+  }
+  
+  function closeEdit() {
+    document.getElementById("myFormEdit").style.display = "none";
+  }
+  
+</script>
 
 </head>
 
@@ -115,7 +126,7 @@
 					<td><c:out value="${module.teacher_name}" /></td>
                   
                   <td>
-       			 <a href="#" onclick='openForm()'>
+       			 <a href="editModule?id_module=${module.id_module}" onclick='openForm()'>
        		     <span class="glyphicon glyphicon-edit"></span>
      			 </a> &nbsp;
     			
@@ -137,34 +148,55 @@
 
 
 
-  <div class="form-popup" id="myForm">
-    
+<div class="form-popup" id="myForm">   
     <button id = "x" class="btn cancel" onclick="closeForm()">
         X
     </button>
 
-
 <form action="insertModule" class="form-container">
-
-
-<input class="forminput" type="text" placeholder="Subject Number" name="subjectnum" required>
-<input class="forminput" type="text" placeholder="Subject Name" name="subjectname" required>
-<input class="forminput" type="text" placeholder="Teacher's Name" name="teachername" required>
-
-
-
-
-<br>
-
-
-<button type="submit" class="btn" id="btnAdd">Add Subject</button>
+	<input class="forminput" type="text" placeholder="Subject Number" name="subjectnum" required>
+	<input class="forminput" type="text" placeholder="Subject Name" name="subjectname" required>
+	<input class="forminput" type="text" placeholder="Teacher's Name" name="teachername" required>
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Add Subject</button>
 
 </form>
 </div>
 
-  </div>
 
 
+
+	 <!-- ***** Edit subject ***** -->
+
+
+<div class="form-popup" id="myFormEdit">   
+    <button id = "x" class="btn cancel" onclick="closeEdit()">
+        X
+    </button>
+
+<form action="editModule" class="form-container" method="post">
+	<input class="forminput" type="text" placeholder="Subject Number" value="${m.module_num}" name="subjectnum" required>
+	<input class="forminput" type="text" placeholder="Subject Name" value="${m.module_name}" name="subjectname" required>
+	<input class="forminput" type="text" placeholder="Teacher's Name" value="${m.teacher_name}" name="teachername" required>
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Edit Subject</button>
+
+</form>
+</div>
+
+
+
+</div>
+
+
+
+<script>
+ <% Object key = request.getAttribute("cle");
+ System.out.println(key);
+ if(key.equals(1)){ %>
+	  openEdit();	
+	  <% } %>
+</script>
 
 </body>
 </html>
