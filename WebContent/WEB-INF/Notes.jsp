@@ -40,7 +40,6 @@
     <style>
     body{
   background-color: #666565;
-  position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
@@ -163,7 +162,7 @@ function openEdit() {
     </button>
 
 
-<form action="insertNote" class="form-container">
+<form action="insertNote" class="form-container" method="post">
 
 <label>Student :</label>
 <select name="id_person">
