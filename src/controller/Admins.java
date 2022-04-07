@@ -26,7 +26,8 @@ public class Admins extends HttpServlet{
       	
       	
       	String path=request.getServletPath();
-      	
+  		request.setAttribute("cle", 0);
+
       	System.out.println("PATH "+path);
       	if (path.equals("/Admins"))
       	{
