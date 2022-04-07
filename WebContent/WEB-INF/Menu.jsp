@@ -33,8 +33,8 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li ><a href="Home" class="active">Home</a></li>
-                          <li><a href="Modules">Subjects</a></li>
+                          <li ><a href="Home">Home</a></li>
+                          <li><a href="Modules">Results</a></li>
                           <li><a href="index.jsp" >
          					 <span class="glyphicon glyphicon-log-out"></span> Log out
        						 </a></li>

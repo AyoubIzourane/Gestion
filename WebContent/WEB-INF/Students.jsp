@@ -62,6 +62,17 @@
 }
   </style>
   
+  <script >
+function openEdit() {
+    document.getElementById("myFormEdit").style.display = "block";
+  }
+  
+  function closeEdit() {
+    document.getElementById("myFormEdit").style.display = "none";
+  }
+  
+ 
+</script>
 
 </head>
 
@@ -118,7 +129,7 @@
                   <a href="viewStudent?id_person=${student.id_person}">
           		 <span class="glyphicon glyphicon-eye-open"></span>
         		 </a>
-       			 <a href="#" onclick='openForm()'>
+       			 <a href="editStudent?id_person=${student.id_person}" onclick='openForm()'>
        		     <span class="glyphicon glyphicon-edit"></span>
      			 </a>
     			
@@ -146,40 +157,59 @@
     <button id = "x" class="btn cancel" onclick="closeForm()">
         X
     </button>
-
-
-<form action="insertStudent" class="form-container">
-
-
-
-<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
-
-<input class="forminput" type="text" placeholder="Lastname" name="lastname" required>
-
-<input class="forminput" type="text" placeholder="Username" name="username" required>
-
-<input class="forminput" type="password" placeholder="Password" name="password" required>
-
-<input class="forminput" type="text" placeholder="Email" name="email" required>
-
-<input class="forminput" type="text" placeholder="Phone" name="phone" required>
-
-<input class="forminput" type="text" placeholder="Class" name="classe" required>
-
-<label class="forminput"><b>Genre :</b></label>
-<label class="genre" ><b>Male</b></label><input type="radio"  name="genre" value="male">
-<label class="genre"><b>Female</b></label><input type="radio"  name="genre" value="female">
-
-<br>
-
-
-<button type="submit" class="btn" id="btnAdd">Add Student</button>
+<form action="insertStudent" class="form-container" method="post">
+	<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
+	<input class="forminput" type="text" placeholder="Lastname" name="lastname" required>
+	<input class="forminput" type="text" placeholder="Username" name="username" required>
+	<input class="forminput" type="password" placeholder="Password" name="password" required>
+	<input class="forminput" type="text" placeholder="Email" name="email" required>
+	<input class="forminput" type="text" placeholder="Phone" name="phone" required>
+	<input class="forminput" type="text" placeholder="Class" name="classe" required>
+	<label class="forminput"><b>Genre :</b></label>
+	<label class="genre" ><b>Male</b></label><input type="radio"  name="genre" value="male">
+	<label class="genre"><b>Female</b></label><input type="radio"  name="genre" value="female">
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Add Student</button>
 </form>
 
 
 </div>
 
 
+
+
+
+
+  <div class="form-popup" id="myFormEdit">
+    
+    <button id = "x" class="btn cancel" onclick="closeEdit()">
+        X
+    </button>
+<form action="editStudent" class="form-container" method="post">
+	<input class="forminput" type="text" placeholder="Firstname" value="${s.fname}" name="firstname" required>
+	<input class="forminput" type="text" placeholder="Lastname" value="${s.lname}" name="lastname" required>
+	<input class="forminput" type="text" placeholder="Username" value="${s.username}" name="username" required>
+	<input class="forminput" type="password" placeholder="Password" value="${s.password}" name="password" required>
+	<input class="forminput" type="text" placeholder="Email" value="${s.email}" name="email" required>
+	<input class="forminput" type="text" placeholder="Phone" value="${s.phone}" name="phone" required>
+	<input class="forminput" type="text" placeholder="Class" value="${s.classe}" name="classe" required>
+	<label class="forminput"><b>Genre :</b></label>
+	<label class="genre" ><b>Male</b></label><input type="radio"  name="genre" value="male">
+	<label class="genre"><b>Female</b></label><input type="radio"  name="genre" value="female">
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Edit Student</button>
+</form>
+
+</div>
+
+
+<script>
+ <% Object key = request.getAttribute("cle");
+ System.out.println(key);
+ if(key.equals(1)){ %>
+	  openEdit();	
+	  <% } %>
+</script>
 
 </body>
 </html>
