@@ -47,13 +47,15 @@ public class Person implements Serializable {
 	}*/
 	
 
-	public int getId_user() {
+
+	public int getId_person() {
 		return id_person;
 	}
 
-	public void setId_user(int id_person) {
+	public void setId_person(int id_person) {
 		this.id_person = id_person;
 	}
+
 
 	public String getFname() {
 		return fname;

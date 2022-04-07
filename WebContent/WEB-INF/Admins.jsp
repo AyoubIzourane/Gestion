@@ -64,6 +64,16 @@
 
   </style>
   
+  <script >
+function openEdit() {
+    document.getElementById("myFormEdit").style.display = "block";
+  }
+  
+  function closeEdit() {
+    document.getElementById("myFormEdit").style.display = "none";
+  }
+  
+</script>
 
 </head>
 
@@ -115,7 +125,7 @@
                     <td><c:out value="${admin.phone}" /></td>
                   
                   <td>
-       			 <a href="#" onclick='openForm()'>
+       			 <a href="editAdmin?id_person=${admin.id_person}" >
        		     <span class="glyphicon glyphicon-edit"></span>
      			 </a> &nbsp;
     			
@@ -137,43 +147,53 @@
 
 
 
-  <div class="form-popup" id="myForm">
-    
+  <div class="form-popup" id="myForm">  
     <button id = "x" class="btn cancel" onclick="closeForm()">
         X
     </button>
-
-
-<form action="insertAdmin" class="form-container">
-
-
-
-<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
-
-<input class="forminput" type="text" placeholder="lastname" name="lastname" required>
-
-
-<input class="forminput" type="text" placeholder="Username" name="username" required>
-
-<input class="forminput" type="password" placeholder="Password" name="password" required>
-
-<input class="forminput" type="text" placeholder="Email" name="email" required>
-
-<input class="forminput" type="text" placeholder="Phone" name="phone" required>
-
-
-
-<br>
-
-
-<button type="submit" class="btn" id="btnAdd">Add Admin</button>
-
+<form action="insertAdmin" class="form-container" method="post">
+	<input class="forminput" type="text" placeholder="Firstname" name="firstname" required>
+	<input class="forminput" type="text" placeholder="lastname" name="lastname" required>
+	<input class="forminput" type="text" placeholder="Username" name="username" required>
+	<input class="forminput" type="password" placeholder="Password" name="password" required>
+	<input class="forminput" type="text" placeholder="Email" name="email" required>
+	<input class="forminput" type="text" placeholder="Phone" name="phone" required>
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Add Admin</button>
 </form>
 </div>
 
+	 <!-- ***** Edit popup ***** -->
+	
+
+<div class="form-popup" id="myFormEdit">  
+    <button id = "x" class="btn cancel" onclick="closeEdit()">
+        X
+    </button>
+<form action="editAdmin" class="form-container" method="post">
+	<input class="forminput" type="text" placeholder="Firstname" value="${admin.fname}" name="firstname" required>
+	<input class="forminput" type="text" placeholder="lastname" value="${admin.lname}" name="lastname" required>
+	<input class="forminput" type="text" placeholder="Username" value="${admin.username}" name="username" required>
+	<input class="forminput" type="password" placeholder="Password" value="${admin.password}" name="password" required>
+	<input class="forminput" type="text" placeholder="Email" value="${admin.email}" name="email" required>
+	<input class="forminput" type="text" placeholder="Phone" value="${admin.phone}" name="phone" required>
+	<br>
+	<button type="submit" class="btn" id="btnAdd">Edit Admin</button>
+</form>
+</div>
+
+
+
+
   </div>
 
-
+<script>
+ <% Object key = request.getAttribute("cle");
+ System.out.println(key);
+ if(key.equals(1)){ %>
+	  openEdit();	
+	  <% } %>
+</script>
 
 </body>
 </html>

@@ -58,15 +58,6 @@ public class Student extends Person{
 		this.module = module;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [genre=" + genre + ", classe=" + classe + ", module=" + module + ", getGenre()=" + getGenre()
-				+ ", getClasse()=" + getClasse() + ", getModule()=" + getModule() + ", getId_user()=" + getId_user()
-				+ ", getFname()=" + getFname() + ", getLname()=" + getLname() + ", getUsername()=" + getUsername()
-				+ ", getPassword()=" + getPassword() + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone()
-				+ ", isRole()=" + isRole() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
 
 	
 	
