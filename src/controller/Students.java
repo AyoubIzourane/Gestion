@@ -81,19 +81,13 @@ public class Students extends HttpServlet{
       		dd.forward(request, response);
       
       	}
+
       	else if(path.equals("/viewStudent")) {
-      		int id= Integer.parseInt(request.getParameter("id_person"));
-      		student = studentdaoimp.findEntity(id);
-      		List<Module> modules = studentdaoimp.getModules(id);
-      		request.setAttribute("student", student);
-      		request.setAttribute("modules", modules);
-      		
-      		request.setAttribute("cle", 0);
+          		int id= Integer.parseInt(request.getParameter("id_person"));
+          		request.setAttribute("id", id);
+        		this.getServletContext().getRequestDispatcher("/WEB-INF/DetailsStudent.jsp").forward(request, response);
 
-      		
-    		this.getServletContext().getRequestDispatcher("/WEB-INF/DetailsStudent.jsp").forward(request, response);
-
-      	}
+          	}
       	
       	else if(path.equals("/editStudent")) {
       		int id= Integer.parseInt(request.getParameter("id_person"));
