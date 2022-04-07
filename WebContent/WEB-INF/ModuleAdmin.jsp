@@ -153,7 +153,7 @@ function openEdit() {
         X
     </button>
 
-<form action="insertModule" class="form-container">
+<form action="insertModule" class="form-container" method="post">
 	<input class="forminput" type="text" placeholder="Subject Number" name="subjectnum" required>
 	<input class="forminput" type="text" placeholder="Subject Name" name="subjectname" required>
 	<input class="forminput" type="text" placeholder="Teacher's Name" name="teachername" required>
